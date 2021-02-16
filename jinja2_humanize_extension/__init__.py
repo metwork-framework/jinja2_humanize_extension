@@ -1,8 +1,6 @@
 import jinja2
 from jinja2.ext import Extension
-from humanize import (
-    naturalsize,
-)
+from humanize import naturalsize
 
 from humanize.time import (
     abs_timedelta,
@@ -13,11 +11,17 @@ from humanize.time import (
     naturaltime,
     precisedelta,
 )
+from humanize.number import intword
 
 
 @jinja2.evalcontextfilter
 def humanize_abs_timedelta(eval_ctx, delta):
     return abs_timedelta(delta)
+
+
+@jinja2.evalcontextfilter
+def humanize_intword(eval_ctx, value, format="%.1f"):
+    return intword(value, format=format)
 
 
 @jinja2.evalcontextfilter
@@ -76,3 +80,4 @@ class HumanizeExtension(Extension):
         environment.filters["humanize_naturaldelta"] = humanize_naturaldelta
         environment.filters["humanize_naturaltime"] = humanize_naturaltime
         environment.filters["humanize_precisedelta"] = humanize_precisedelta
+        environment.filters["humanize_intword"] = humanize_intword

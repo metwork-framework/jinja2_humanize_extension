@@ -16,6 +16,7 @@ Following [humanize](https://python-humanize.readthedocs.io/) functions are curr
 - `naturaldelta`
 - `naturaltime`
 - `precisedelta`
+- `humanize_intword`
 
 See [humanize](https://python-humanize.readthedocs.io/) documentation for argument details.
 

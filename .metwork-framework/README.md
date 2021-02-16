@@ -24,7 +24,7 @@ have to use:
 
 ```
 
-The file size is: {{ 30000000|humanize_naturalsize(binary=False, gnu=True) }}
+The file size is: {% raw %}{{ 30000000|humanize_naturalsize(binary=False, gnu=True) }}{% endraw %}
 
 ```
 

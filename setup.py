@@ -6,7 +6,7 @@ with open('requirements.txt') as reqs:
         if (line and not line.startswith('--')) and (";" not in line)]
 
 with open(".metwork-framework/README.md") as f:
-    long_description = f.read()
+    long_description = f.read().replace("{% raw %}", "").replace("{% endraw %}", "")
 
 setup(
     author="Fabien MARTY",

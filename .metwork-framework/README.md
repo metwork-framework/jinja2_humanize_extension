@@ -28,6 +28,15 @@ The file size is: {% raw %}{{ 30000000|humanize_naturalsize(binary=False, gnu=Tr
 
 ```
 
+You can use the same logic with all supported functions. If you need other functions, feel
+free to open a PullRequest.
+
+## Installation
+
+```
+pip install jinja2-humanize-extension
+```
+
 ## Full example
 
 ```python

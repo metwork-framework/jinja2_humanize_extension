@@ -30,6 +30,7 @@ Following [humanize](https://python-humanize.readthedocs.io/) functions are curr
 - `naturaldelta`
 - `naturaltime`
 - `precisedelta`
+- `humanize_intword`
 
 See [humanize](https://python-humanize.readthedocs.io/) documentation for argument details.
 
@@ -40,6 +41,15 @@ have to use:
 
 The file size is: {{ 30000000|humanize_naturalsize(binary=False, gnu=True) }}
 
+```
+
+You can use the same logic with all supported functions. If you need other functions, feel
+free to open a PullRequest.
+
+## Installation
+
+```
+pip install jinja2-humanize-extension
 ```
 
 ## Full example

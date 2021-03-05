@@ -6,7 +6,7 @@
 
 
 
-[![GitHub CI](https://github.com/metwork-framework/jinja2_humanize_extension/workflows/CI/badge.svg?branch=master)](https://github.com/metwork-framework/jinja2_humanize_extension/actions?query=workflow%3ACI&branch=master)
+[![GitHub CI](https://github.com/metwork-framework/jinja2_humanize_extension/workflows/CI/badge.svg?branch=master)](https://github.com/metwork-framework/jinja2_humanize_extension/actions?query=workflow%3ACI+branch%3Amaster)
 [![Maintenance](https://raw.githubusercontent.com/metwork-framework/resources/master/badges/maintained.svg)](https://github.com/metwork-framework/resources/blob/master/badges/maintained.svg)
 
 

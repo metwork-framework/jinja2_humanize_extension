@@ -1,4 +1,3 @@
-import jinja2
 from jinja2.ext import Extension
 from humanize import naturalsize
 
@@ -14,44 +13,50 @@ from humanize.time import (
 from humanize.number import intword
 
 
-@jinja2.evalcontextfilter
+try:
+    from jinja2 import pass_eval_context as eval_context
+except ImportError:
+    from jinja2 import evalcontextfilter as eval_context
+
+
+@eval_context
 def humanize_abs_timedelta(eval_ctx, delta):
     return abs_timedelta(delta)
 
 
-@jinja2.evalcontextfilter
+@eval_context
 def humanize_intword(eval_ctx, value, format="%.1f"):
     return intword(value, format=format)
 
 
-@jinja2.evalcontextfilter
+@eval_context
 def humanize_naturalsize(eval_ctx, value, binary=False, gnu=False, format="%.1f"):
     return naturalsize(value, binary=binary, gnu=gnu, format=format)
 
 
-@jinja2.evalcontextfilter
+@eval_context
 def humanize_date_and_delta(eval_ctx, value, *args, now=None):
     return date_and_delta(value, *args, now=now)
 
 
-@jinja2.evalcontextfilter
+@eval_context
 def humanize_naturaldate(eval_ctx, value):
     return naturaldate(value)
 
 
-@jinja2.evalcontextfilter
+@eval_context
 def humanize_naturalday(eval_ctx, value):
     return naturalday(value)
 
 
-@jinja2.evalcontextfilter
+@eval_context
 def humanize_naturaldelta(
     eval_ctx, value, months=True, minimum_unit="seconds", when=None
 ):
     return naturaldelta(value, months=months, minimum_unit=minimum_unit, when=when)
 
 
-@jinja2.evalcontextfilter
+@eval_context
 def humanize_naturaltime(
     eval_ctx, value, future=False, months=True, minimum_unit="seconds", when=None
 ):
@@ -60,7 +65,7 @@ def humanize_naturaltime(
     )
 
 
-@jinja2.evalcontextfilter
+@eval_context
 def humanize_precisedelta(
     eval_ctx, value, minimum_unit="seconds", suppress=(), format="%0.2f"
 ):

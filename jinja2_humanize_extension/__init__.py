@@ -39,8 +39,7 @@ def humanize_naturalday(eval_ctx, value):
 
 @eval_context
 def humanize_naturaldelta(
-    eval_ctx, value, months=True, minimum_unit="seconds", when=None
-):
+    eval_ctx, value, months=True, minimum_unit="seconds"):
     return naturaldelta(value, months=months, minimum_unit=minimum_unit, when=when)
 
 

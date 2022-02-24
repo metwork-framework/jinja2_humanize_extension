@@ -1,2 +1,2 @@
 jinja2
-humanize
+humanize>=4.0.0

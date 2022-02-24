@@ -36,7 +36,7 @@ def humanize_naturalsize(eval_ctx, value, binary=False, gnu=False, format="%.1f"
 
 @eval_context
 def humanize_date_and_delta(eval_ctx, value, *args, now=None):
-    return date_and_delta(value, *args, now=now)
+    return date_and_delta(value, *args, now=None)
 
 
 @eval_context
@@ -53,7 +53,7 @@ def humanize_naturalday(eval_ctx, value):
 def humanize_naturaldelta(
     eval_ctx, value, months=True, minimum_unit="seconds", when=None
 ):
-    return naturaldelta(value, months=months, minimum_unit=minimum_unit, when=when)
+    return naturaldelta(value, months=months, minimum_unit=minimum_unit, when=None)
 
 
 @eval_context
@@ -61,7 +61,7 @@ def humanize_naturaltime(
     eval_ctx, value, future=False, months=True, minimum_unit="seconds", when=None
 ):
     return naturaltime(
-        value, future=future, months=months, minimum_unit=minimum_unit, when=when
+        value, future=future, months=months, minimum_unit=minimum_unit, when=None
     )
 
 

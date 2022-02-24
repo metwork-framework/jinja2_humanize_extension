@@ -35,8 +35,8 @@ def humanize_naturalsize(eval_ctx, value, binary=False, gnu=False, format="%.1f"
 
 
 @eval_context
-def humanize_date_and_delta(eval_ctx, value, *args, now=None):
-    return date_and_delta(value, *args, now=now)
+def humanize_date_and_delta(eval_ctx, value, *args):
+    return date_and_delta(value, *args)
 
 
 @eval_context

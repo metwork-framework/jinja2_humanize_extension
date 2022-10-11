@@ -12,7 +12,7 @@ setup(
     author="Fabien MARTY",
     author_email="fabien.marty@gmail.com",
     name="jinja2_humanize_extension",
-    version="0.0.0",
+    version="0.2.2",
     license="BSD",
     packages=find_packages(),
     install_requires=install_requires,

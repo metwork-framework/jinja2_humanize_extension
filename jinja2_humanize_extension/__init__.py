@@ -2,8 +2,8 @@ from jinja2.ext import Extension
 from humanize import naturalsize
 
 from humanize.time import (
-    abs_timedelta,
-    date_and_delta,
+    _abs_timedelta,
+    _date_and_delta,
     naturaldate,
     naturalday,
     naturaldelta,
@@ -21,7 +21,7 @@ except ImportError:
 
 @eval_context
 def humanize_abs_timedelta(eval_ctx, delta):
-    return abs_timedelta(delta)
+    return _abs_timedelta(delta)
 
 
 @eval_context
@@ -36,7 +36,7 @@ def humanize_naturalsize(eval_ctx, value, binary=False, gnu=False, format="%.1f"
 
 @eval_context
 def humanize_date_and_delta(eval_ctx, value, *args):
-    return date_and_delta(value, *args)
+    return _date_and_delta(value, *args)
 
 
 @eval_context
@@ -50,10 +50,8 @@ def humanize_naturalday(eval_ctx, value):
 
 
 @eval_context
-def humanize_naturaldelta(
-    eval_ctx, value, months=True, minimum_unit="seconds", when=None
-):
-    return naturaldelta(value, months=months, minimum_unit=minimum_unit, when=when)
+def humanize_naturaldelta(eval_ctx, value, months=True, minimum_unit="seconds"):
+    return naturaldelta(value, months=months, minimum_unit=minimum_unit)
 
 
 @eval_context

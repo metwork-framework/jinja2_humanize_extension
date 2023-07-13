@@ -2,8 +2,8 @@ from jinja2.ext import Extension
 from humanize import naturalsize
 
 from humanize.time import (
-    abs_timedelta,
-    date_and_delta,
+    _abs_timedelta,
+    _date_and_delta,
     naturaldate,
     naturalday,
     naturaldelta,

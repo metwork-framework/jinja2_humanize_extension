@@ -17,7 +17,7 @@ clean:
 
 test:
 	flake8 --max-line-length 88 --ignore=D100,D101,D102,D103,D104,D107,D106,D105,W503,E203 jinja2_humanize_extension
-	black --check jinja2_humanize_extension
+	black --check --diff jinja2_humanize_extension
 	pylint --errors-only jinja2_humanize_extension
 	pytest
 

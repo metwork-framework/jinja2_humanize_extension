@@ -21,7 +21,7 @@ except ImportError:
 
 @eval_context
 def humanize_abs_timedelta(eval_ctx, delta):
-    return abs_timedelta(delta)
+    return _abs_timedelta(delta)
 
 
 @eval_context
@@ -36,7 +36,7 @@ def humanize_naturalsize(eval_ctx, value, binary=False, gnu=False, format="%.1f"
 
 @eval_context
 def humanize_date_and_delta(eval_ctx, value, *args):
-    return date_and_delta(value, *args)
+    return _date_and_delta(value, *args)
 
 
 @eval_context

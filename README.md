@@ -23,8 +23,8 @@ The generic syntax is `{{ 'VALUE'|humanize_{humanize_fn}([humanize_fn_args]) }}`
 Following [humanize](https://python-humanize.readthedocs.io/) functions are currently mapped:
 
 - `naturalsize`
-- `abs_timedelta`
-- `date_and_delta`
+- `_abs_timedelta` (deprecated with humanize >= 4.0, we keep it for compatibility)
+- `_date_and_delta` (deprecated with humanize >= 4.0, we keep it for compatibility)
 - `naturaldate`
 - `naturalday`
 - `naturaldelta`

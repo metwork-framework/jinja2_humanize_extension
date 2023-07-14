@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## v0.3.0 (2023-07-13)
+
+### New Features
+
+- use with humanize >= 4.0 (deprecated abs_timedelta and date_and_delta)
+- naturaldelta has lost argument when since 3.14.0
+
+## vmaster.0 (2023-07-13)
+
+- No interesting change
+
 ## v0.2.2 (2022-10-11)
 
 - No interesting change

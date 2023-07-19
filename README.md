@@ -12,31 +12,62 @@
 
 
 
-Traceback (most recent call last):
-  File "/usr/local/bin/envtpl", line 8, in <module>
-    sys.exit(main())
-  File "/usr/local/lib/python3.10/dist-packages/envtpl.py", line 92, in main
-    process_file(args.input_file, args.output_file, variables,
-  File "/usr/local/lib/python3.10/dist-packages/envtpl.py", line 131, in process_file
-    output = _render_string(stdin_read(), variables, undefined,
-  File "/usr/local/lib/python3.10/dist-packages/envtpl.py", line 190, in _render_string
-    return _render(template_name, loader, variables,
-  File "/usr/local/lib/python3.10/dist-packages/envtpl.py", line 238, in _render
-    template = env.get_template(template_name)
-  File "/usr/lib/python3/dist-packages/jinja2/environment.py", line 997, in get_template
-    return self._load_template(name, globals)
-  File "/usr/lib/python3/dist-packages/jinja2/environment.py", line 958, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-  File "/usr/lib/python3/dist-packages/jinja2/loaders.py", line 563, in load
-    return loader.load(environment, name, globals)
-  File "/usr/lib/python3/dist-packages/jinja2/loaders.py", line 137, in load
-    code = environment.compile(source, name, filename)
-  File "/usr/lib/python3/dist-packages/jinja2/environment.py", line 757, in compile
-    self.handle_exception(source=source_hint)
-  File "/usr/lib/python3/dist-packages/jinja2/environment.py", line 925, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "<unknown>", line 7, in template
-jinja2.exceptions.TemplateSyntaxError: expected token 'end of print statement', got '{'
+## What is it ?
+
+This is a [jinja2](http://jinja.pocoo.org/) extension to use [humanize](https://python-humanize.readthedocs.io/) library inside jinja2 templates.
+
+## Syntax
+
+The generic syntax is `{{ 'VALUE'|humanize_{humanize_fn}([humanize_fn_args]) }}`.
+
+Following [humanize](https://python-humanize.readthedocs.io/) functions are currently mapped:
+
+- `naturalsize`
+- `abs_timedelta`
+- `date_and_delta`
+- `naturaldate`
+- `naturalday`
+- `naturaldelta`
+- `naturaltime`
+- `precisedelta`
+- `humanize_intword`
+
+See [humanize](https://python-humanize.readthedocs.io/) documentation for argument details.
+
+To take a more real example, let's take the [naturalsize()](https://python-humanize.readthedocs.io/en/latest/filesize/) function. To use it inside a [jinja2](http://jinja.pocoo.org/) template with this extension, you
+have to use:
+
+```
+
+The file size is: {{ 30000000|humanize_naturalsize(binary=False, gnu=True) }}
+
+```
+
+You can use the same logic with all supported functions. If you need other functions, feel
+free to open a PullRequest.
+
+## Installation
+
+```
+pip install jinja2-humanize-extension
+```
+
+## Full example
+
+```python
+
+from jinja2 import Template, Environment
+
+# We load the extension in a jinja2 Environment
+env = Environment(extensions=["jinja2_humanize_extension.HumanizeExtension"])
+
+template = env.from_string("The file size is : {{ 30000000|humanize_naturalsize() }}")
+result = template.render()
+
+# [...]
+```
+
+result content will be : `The file size is : 30.0 MB`
 
 
 

@@ -9,8 +9,8 @@ The generic syntax is `{% raw %}{{ 'VALUE'|humanize_{humanize_fn}([humanize_fn_a
 Following [humanize](https://python-humanize.readthedocs.io/) functions are currently mapped:
 
 - `naturalsize`
-- `abs_timedelta`
-- `date_and_delta`
+- `abs_timedelta` (deprecated with humanize >= 4.0, only kept for compatibility)
+- `date_and_delta` (deprecated with humanize >= 4.0, only kept for compatibility)
 - `naturaldate`
 - `naturalday`
 - `naturaldelta`

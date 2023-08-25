@@ -25,7 +25,7 @@ have to use:
 
 ```
 
-The file size is: {{ 30000000|humanize_naturalsize(binary=False, gnu=True) }}
+The file size is: {% raw %}{{ 30000000|humanize_naturalsize(binary=False, gnu=True) }}{% endraw %}
 
 ```
 
@@ -49,7 +49,7 @@ from jinja2 import Template, Environment
 # We load the extension in a jinja2 Environment
 env = Environment(extensions=["jinja2_humanize_extension.HumanizeExtension"])
 
-template = env.from_string("The file size is : {{ 30000000|humanize_naturalsize() }}")
+template = env.from_string("The file size is : {% raw %}{{ 30000000|humanize_naturalsize() }}"){% endraw %}
 result = template.render()
 
 # [...]

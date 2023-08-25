@@ -20,6 +20,12 @@ from humanize.number import (
     clamp,
     metric,
 )
+from humanize.i18n import (
+    activate,
+    deactivate,
+    thousands_separator,
+    decimal_separator,
+)
 
 try:
     from jinja2 import pass_eval_context as eval_context
@@ -130,6 +136,26 @@ def humanize_metric(eval_ctx, value, unit="", precision=3):
     return metric(value, unit=unit, precision=precision)
 
 
+@eval_context
+def humanize_activate(eval_ctx, locale, path=None):
+    return activate(locale, path=path)
+
+
+@eval_context
+def humanize_deactivate(eval_ctx):
+    return deactivate()
+
+
+@eval_context
+def humanize_thousands_separator(eval_ctx):
+    return thousands_separator()
+
+
+@eval_context
+def humanize_decimal_separator(eval_ctx):
+    return decimal_separator()
+
+
 class HumanizeExtension(Extension):
     def __init__(self, environment):
         super(HumanizeExtension, self).__init__(environment)
@@ -149,3 +175,7 @@ class HumanizeExtension(Extension):
         environment.filters["humanize_scientific"] = humanize_scientific
         environment.filters["humanize_clamp"] = humanize_clamp
         environment.filters["humanize_metric"] = humanize_metric
+        environment.filters["humanize_activate"] = humanize_activate
+        environment.filters["humanize_deactivate"] = humanize_deactivate
+        environment.filters["humanize_thousands_separator"] = humanize_thousands_separator
+        environment.filters["humanize_decimal_separator"] = humanize_decimal_separator

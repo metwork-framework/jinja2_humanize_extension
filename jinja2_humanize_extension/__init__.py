@@ -121,7 +121,7 @@ def humanize_clamp(
         floor=floor,
         ceil=ceil,
         floor_token=floor_token,
-        ceil_token=ceil_tokeni,
+        ceil_token=ceil_token,
     )
 
 

@@ -8,10 +8,18 @@ from humanize.time import (
     naturalday,
     naturaldelta,
     naturaltime,
-    precisedelta,
+    precisedelta
 )
-from humanize.number import intword
-
+from humanize.number import (
+    ordinal,
+    intcomma,
+    intword,
+    apnumber,
+    fractional,
+    scientific,
+    clamp,
+    metric
+)
 
 try:
     from jinja2 import pass_eval_context as eval_context
@@ -22,11 +30,6 @@ except ImportError:
 @eval_context
 def humanize_abs_timedelta(eval_ctx, delta):
     return _abs_timedelta(delta)
-
-
-@eval_context
-def humanize_intword(eval_ctx, value, format="%.1f"):
-    return intword(value, format=format)
 
 
 @eval_context
@@ -72,6 +75,48 @@ def humanize_precisedelta(
     )
 
 
+@eval_context
+def humanize_ordinal(eval_ctx, value, gender="male"):
+    return ordinal(value, gender=gender)
+
+
+@eval_context
+def humanize_intcomma(eval_ctx, value, ndigits=None):
+    return intcomma(value, ndigits=ndigits)
+
+
+@eval_context
+def humanize_intword(eval_ctx, value, format="%.1f"):
+    return intword(value, format=format)
+
+
+@eval_context
+def humanize_apnumber(eval_ctx, value):
+    return apnumber(value)
+
+
+@eval_context
+def humanize_fractional(eval_ctx, value):
+    return fractional(value)
+
+
+@eval_context
+def humanize_scientific(eval_ctx, value, precision=2):
+    return scientific(value, precision=precision)
+
+
+@eval_context
+def humanize_clamp(eval_ctx, value, floor=None, ceil=None, format="{:}",
+                   floor_token="<", ceil_token=">"):
+    return clamp(value, format=format, floor=floor, ceil=ceil,
+                 floor_token=floor_token, ceil_token=ceil_token)
+
+
+@eval_context
+def humanize_metric(eval_ctx, value, unit="", precision=3):
+    return metric(value, unit=unit, precision=precision)
+
+
 class HumanizeExtension(Extension):
     def __init__(self, environment):
         super(HumanizeExtension, self).__init__(environment)
@@ -83,4 +128,11 @@ class HumanizeExtension(Extension):
         environment.filters["humanize_naturaldelta"] = humanize_naturaldelta
         environment.filters["humanize_naturaltime"] = humanize_naturaltime
         environment.filters["humanize_precisedelta"] = humanize_precisedelta
+        environment.filters["humanize_ordinal"] = humanize_ordinal
+        environment.filters["humanize_intcomma"] = humanize_intcomma
         environment.filters["humanize_intword"] = humanize_intword
+        environment.filters["humanize_apnumber"] = humanize_apnumber
+        environment.filters["humanize_fractional"] = humanize_fractional
+        environment.filters["humanize_scientific"] = humanize_scientific
+        environment.filters["humanize_clamp"] = humanize_clamp
+        environment.filters["humanize_metric"] = humanize_metric

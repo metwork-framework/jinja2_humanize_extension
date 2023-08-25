@@ -4,7 +4,7 @@ This is a [jinja2](http://jinja.pocoo.org/) extension to use [humanize](https://
 
 ## Syntax
 
-The generic syntax is `{{ 'VALUE'|humanize_{humanize_fn}([humanize_fn_args]) }}`.
+The generic syntax is `{% raw %}{{ 'VALUE'|humanize_{humanize_fn}([humanize_fn_args]) }}{% endraw %}`.
 
 Following [humanize](https://python-humanize.readthedocs.io/) functions are currently mapped:
 

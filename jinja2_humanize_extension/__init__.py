@@ -8,7 +8,7 @@ from humanize.time import (
     naturalday,
     naturaldelta,
     naturaltime,
-    precisedelta
+    precisedelta,
 )
 from humanize.number import (
     ordinal,
@@ -18,7 +18,7 @@ from humanize.number import (
     fractional,
     scientific,
     clamp,
-    metric
+    metric,
 )
 
 try:
@@ -106,10 +106,23 @@ def humanize_scientific(eval_ctx, value, precision=2):
 
 
 @eval_context
-def humanize_clamp(eval_ctx, value, floor=None, ceil=None, format="{:}",
-                   floor_token="<", ceil_token=">"):
-    return clamp(value, format=format, floor=floor, ceil=ceil,
-                 floor_token=floor_token, ceil_token=ceil_token)
+def humanize_clamp(
+    eval_ctx,
+    value,
+    floor=None,
+    ceil=None,
+    format="{:}",
+    floor_token="<",
+    ceil_token=">",
+):
+    return clamp(
+        value,
+        format=format,
+        floor=floor,
+        ceil=ceil,
+        floor_token=floor_token,
+        ceil_token=ceil_tokeni,
+    )
 
 
 @eval_context

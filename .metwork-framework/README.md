@@ -4,13 +4,13 @@ This is a [jinja2](http://jinja.pocoo.org/) extension to use [humanize](https://
 
 ## Syntax
 
-The generic syntax is `{% raw %}{{ 'VALUE'|humanize_{humanize_fn}([humanize_fn_args]) }}{% endraw %}`.
+The generic syntax is `{{ 'VALUE'|humanize_{humanize_fn}([humanize_fn_args]) }}`.
 
 Following [humanize](https://python-humanize.readthedocs.io/) functions are currently mapped:
 
 - `naturalsize`
-- `abs_timedelta` (deprecated with humanize >= 4.0, only kept for compatibility)
-- `date_and_delta` (deprecated with humanize >= 4.0, only kept for compatibility)
+- `abs_timedelta` (deprecated with humanize >= 4.0, we keep it for compatibility)
+- `date_and_delta` (deprecated with humanize >= 4.0, we keep it for compatibility)
 - `naturaldate`
 - `naturalday`
 - `naturaldelta`
@@ -25,9 +25,11 @@ have to use:
 
 ```
 
-The file size is: {% raw %}{{ 30000000|humanize_naturalsize(binary=False, gnu=True) }}{% endraw %}
+The file size is: {{ 30000000|humanize_naturalsize(binary=False, gnu=True) }}
 
 ```
+
+result content will be : `The file size is : 30.0 MB`
 
 You can use the same logic with all supported functions. If you need other functions, feel
 free to open a PullRequest.
@@ -47,7 +49,7 @@ from jinja2 import Template, Environment
 # We load the extension in a jinja2 Environment
 env = Environment(extensions=["jinja2_humanize_extension.HumanizeExtension"])
 
-template = env.from_string("The file size is : {% raw %}{{ 30000000|humanize_naturalsize() }}{% endraw %}")
+template = env.from_string("The file size is : {{ 30000000|humanize_naturalsize() }}")
 result = template.render()
 
 # [...]

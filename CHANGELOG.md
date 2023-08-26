@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [Unreleased]
+
+### New Features
+
+- add humanize number functions
+- add humanize i18n functions
+
 ## v0.3.0 (2023-07-13)
 
 ### New Features

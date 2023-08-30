@@ -30,7 +30,18 @@ Following [humanize](https://python-humanize.readthedocs.io/) functions are curr
 - `naturaldelta`
 - `naturaltime`
 - `precisedelta`
-- `humanize_intword`
+- `ordinal`
+- `intcomma`
+- `intword`
+- `apnumber`
+- `fractional`
+- `scientific`
+- `clamp`
+- `metric`
+- `activate`
+- `deactivate`
+- `thousands_separator`
+- `decimal_separator`
 
 See [humanize](https://python-humanize.readthedocs.io/) documentation for argument details.
 

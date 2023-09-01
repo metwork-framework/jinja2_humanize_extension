@@ -9,10 +9,10 @@ with open("README.md") as f:
     long_description = f.read().replace("{% raw %}", "").replace("{% endraw %}", "")
 
 setup(
-    author="Fabien MARTY",
-    author_email="fabien.marty@gmail.com",
+    author="Fabien MARTY, Jean-Baptiste VESLIN",
+    author_email="fabien.marty@gmail.com, jbaptiste31@free.fr",
     name="jinja2_humanize_extension",
-    version="0.3.0",
+    version="0.4.0",
     license="BSD",
     packages=find_packages(),
     install_requires=install_requires,

@@ -142,17 +142,17 @@ def humanize_activate(eval_ctx, locale, path=None):
 
 
 @eval_context
-def humanize_deactivate(eval_ctx):
+def humanize_deactivate(eval_ctx, value)):
     return deactivate()
 
 
 @eval_context
-def humanize_thousands_separator(eval_ctx):
+def humanize_thousands_separator(eval_ctx, value):
     return thousands_separator()
 
 
 @eval_context
-def humanize_decimal_separator(eval_ctx):
+def humanize_decimal_separator(eval_ctx, value):
     return decimal_separator()
 
 

@@ -142,7 +142,7 @@ def humanize_activate(eval_ctx, locale, path=None):
 
 
 @eval_context
-def humanize_deactivate(eval_ctx, value)):
+def humanize_deactivate(eval_ctx, value):
     return deactivate()
 
 

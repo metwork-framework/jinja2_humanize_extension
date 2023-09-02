@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## [Unreleased]
+## v0.4.0 (2023-09-01)
 
 ### New Features
 

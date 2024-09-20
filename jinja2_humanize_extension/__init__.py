@@ -177,7 +177,7 @@ class HumanizeExtension(Extension):
         environment.filters["humanize_metric"] = humanize_metric
         environment.filters["humanize_activate"] = humanize_activate
         environment.filters["humanize_deactivate"] = humanize_deactivate
-        environment.filters[ "humanize_thousands_separator"] = (
-                humanize_thousands_separator
+        environment.filters["humanize_thousands_separator"] = (
+            humanize_thousands_separator
         )
         environment.filters["humanize_decimal_separator"] = humanize_decimal_separator

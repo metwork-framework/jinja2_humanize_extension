@@ -54,8 +54,8 @@ def humanize_naturaldate(eval_ctx, value):
 
 
 @eval_context
-def humanize_naturalday(eval_ctx, value):
-    return naturalday(value)
+def humanize_naturalday(eval_ctx, value, format="%b %d"):
+    return naturalday(value, format=format)
 
 
 @eval_context

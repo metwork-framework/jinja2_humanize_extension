@@ -1,5 +1,5 @@
 from jinja2 import Template, Environment
-
+import datetime
 
 def test_no_extension():
     template = Template('foo {{ bar }}')

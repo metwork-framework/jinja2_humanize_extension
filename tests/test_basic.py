@@ -16,5 +16,5 @@ def test_extension1():
 def test_naturalday():
     env = Environment(extensions=["jinja2_humanize_extension.HumanizeExtension"])
     template = env.from_string('{{ value|humanize_naturalday(format="%Y") }}')
-    result = template.render(value=datetime.date(2000, 1, 2)))
+    result = template.render(value=datetime.date(2000, 1, 2))
     assert result == "2000"

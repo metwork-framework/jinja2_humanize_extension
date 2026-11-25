@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.4.1 (2026-11-25)
+
+### Bug Fixes
+
+- add humanize's format argument to humanize_naturalday
+
 ## v0.4.0 (2023-09-01)
 
 ### New Features
